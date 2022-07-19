@@ -35,10 +35,11 @@ void display_status(std::vector<char> incorrect, std::string answer)
         std::cout << incorrect[i] << ' ';
     }
 
-    std::cout << "\nCodeword:";
+    std::cout << "\nCodeword:\n";
 
     for (int i = 0; i < answer.length(); i++)
     {
         std::cout << answer[i] << ' ';
     }
 }
+

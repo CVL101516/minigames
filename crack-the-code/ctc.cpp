@@ -10,8 +10,8 @@ int main()
 
     greet();
 
-    std::string codeword = "codebreaker";
-    std::string answer = "___________";
+    std::string codeword = "thumbscrew";
+    std::string answer = "__________";
 
     int wrong_guess = 0;
 
