@@ -2,7 +2,6 @@
 
 #include <iostream>
 using namespace std;
-#include <vector>
 #include "tic-tac-toe-functions.hpp"
 #include "tic-tac-toe-functions.cpp"
 
@@ -11,27 +10,23 @@ int main()
 
     greet();
 
-    while (!is_Winner())
+    while (is_Winner())
     {
-
         game_board();
         gameplay();
         is_Winner();
     }
-
-    if (token == 'x' && tie == false)
+    // Once while loop is exited, should go below.
+    if (token == 'x' && is_tie == false)
     {
-
         cout << p2 << " is the winner!!!" << endl;
     }
-    else if (token == 'o' && tie == false)
+    else if (token == 'o' && is_tie == false)
     {
-
         cout << p1 << " is the winner!!!" << endl;
     }
-    else 
+    else
     {
-        cout << "This game is a draw!" << endl;
+        cout << "This game is a draw!";
     }
 }
-
