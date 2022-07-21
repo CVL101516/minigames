@@ -16,7 +16,6 @@ int main()
         gameplay();
         is_Winner();
     }
-    // Once while loop is exited, should go below.
     if (token == 'x' && is_tie == false)
     {
         cout << p2 << " is the winner!!!" << endl;
@@ -27,6 +26,7 @@ int main()
     }
     else
     {
+        game_board();
         cout << "This game is a draw!";
     }
 }

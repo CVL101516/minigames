@@ -9,6 +9,7 @@ string p2 = "";
 bool is_tie = false;
 int choice;
 
+
 void greet()
 {
     std::cout << "\nTic...Tac...Toe...Gimme an X, Gimme an O, Gimme a Three in a Row.\n\n";
@@ -47,31 +48,59 @@ void gameplay()
     {
         cout << p1 << " please enter the number of the square you would like to draw in: ";
     }
-   else if (token == 'o')
+    else if (token == 'o')
     {
         cout << p2 << " please enter the number of the square you would like to draw in: ";
     }
 
-     cin >> choice;
+    cin >> choice;
 
-     switch(choice) {
-        case 1: row=0; column=0; break;
-        case 2: row=0; column=1; break;
-        case 3: row=0; column=2; break;
-        case 4: row=1; column=0; break;
-        case 5: row=1; column=1; break;
-        case 6: row=1; column=2; break;
-        case 7: row=2; column=0; break;
-        case 8: row=2; column=1; break;
-        case 9: row=2; column=2; break;
-        default:
-            cout << "Invalid Square!" << endl;
-     }
+    switch (choice)
+    {
+    case 1:
+        row = 0;
+        column = 0;
+        break;
+    case 2:
+        row = 0;
+        column = 1;
+        break;
+    case 3:
+        row = 0;
+        column = 2;
+        break;
+    case 4:
+        row = 1;
+        column = 0;
+        break;
+    case 5:
+        row = 1;
+        column = 1;
+        break;
+    case 6:
+        row = 1;
+        column = 2;
+        break;
+    case 7:
+        row = 2;
+        column = 0;
+        break;
+    case 8:
+        row = 2;
+        column = 1;
+        break;
+    case 9:
+        row = 2;
+        column = 2;
+        break;
+    default:
+        cout << "Invalid Square!" << endl;
+    }
 
     if (token == 'x' && board_space[row][column] != 'x' && board_space[row][column] != 'o') // This is what changes the number to the letter x or o and then switches turns.
     {
         board_space[row][column] = 'x';
-        token = 'o';   
+        token = 'o';
     }
     else if (token == 'o' && board_space[row][column] != 'x' && board_space[row][column] != 'o')
     {
@@ -83,7 +112,6 @@ void gameplay()
         cout << "This space is already taken!" << endl;
         gameplay();
     }
-    game_board(); // In case a repeat number is chosen, this will reshow the current state of the game board.
 }
 
 bool is_Winner()
@@ -105,17 +133,12 @@ bool is_Winner()
     {
         for (int j = 0; j < 3; j++)
         {
-            if (board_space[i][j] != 'x' || board_space[i][j] != 'o') // Checks all positions for an X or an O. If there is one filled. Returns false, so game continues (while loop in ttt.cpp continues)
+            if (board_space[i][j] != 'x' && board_space[i][j] != 'o') // Checks all positions for an X or an O. If there is one filled. Returns true, so game continues (while loop in ttt.cpp continues)
             {
                 return true;
             }
-            else //if (board_space[i][j] == 'x' || board_space[i][j] == 'o') // When/if all spaces are filled, this should exit the while loop. setting is_tie to true. Which would move to the if else/if which sees the is_true==true and runs that.
-            {
-                is_tie = true;
-                return false;
-            }
         }
     }
-    //  is_tie = true;
-     return false;
+    is_tie = true;
+    return false;
 }
